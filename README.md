@@ -13,7 +13,7 @@
     ],
 
     "plugins": {
-        "bemhint-plugin-check-file-entity": {
+        "bemhint-plugins-check-file-entity": {
             "techs": {
                 "styl": true
             }
