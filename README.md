@@ -1,4 +1,4 @@
-# BEM hint plugin for checking file entity
+# [BEM hint](https://github.com/bem/bemhint) plugin for checking file entity
 
 ## Config example
 
