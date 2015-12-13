@@ -53,7 +53,8 @@ module.exports.forEntityTech = function (tech, techsConfig, entity) {
                         if (!isMatched) {
                             entity.addError({
                                 msg: 'Name of entity is not correct',
-                                tech: tech.name
+                                tech: tech.name,
+                                value: selector
                             });
                         }
                     }

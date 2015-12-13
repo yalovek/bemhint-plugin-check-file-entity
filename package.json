@@ -1,5 +1,5 @@
 {
-  "name": "bemhint-plugin-check-file-entity",
+  "name": "bemhint-plugins-check-file-entity",
   "version": "1.0.0",
   "description": "Check file entity",
   "main": "index.js",
