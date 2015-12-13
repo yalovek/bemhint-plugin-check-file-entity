@@ -2,9 +2,11 @@ var stylus = require('stylus');
 var css = require('css');
 var CssSelectorParser = require('css-selector-parser').CssSelectorParser;
 var _ = require('lodash');
+var bemNaming = require('bem-naming');
 
 module.exports.forEntityTech = function (tech, techsConfig, entity) {
     var str = tech.content;
+    var block = tech.entity.block;
 
     stylus(str).render(function (err, style) {
         if (err) throw err;
@@ -30,7 +32,23 @@ module.exports.forEntityTech = function (tech, techsConfig, entity) {
 
                     if (obj.rule.hasOwnProperty('classNames')) {
                         var classNames = obj.rule.classNames;
-                        var isMatched = _.includes(classNames, entity.getName());
+                        var blockNames = _.map(classNames, function (className) {
+                            return bemNaming.parse(className).block;
+                        });
+                        var isMatched = _.includes(blockNames, block);
+
+                        if (tech.entity.hasOwnProperty('modVal')) {
+                            var modVal = tech.entity.modVal;
+                            var blockModVals = _.map(classNames, function (className) {
+                                var bemObj = bemNaming.parse(className);
+
+                                if (bemObj.hasOwnProperty('modVal')) {
+                                    return bemObj.modVal;
+                                }
+                            });
+
+                            !_.isBoolean(modVal) && (isMatched = _.includes(blockModVals, modVal));
+                        }
 
                         if (!isMatched) {
                             entity.addError({

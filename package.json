@@ -12,6 +12,7 @@
   "author": "Vadim Yalovenko, Alexey Khlebaev",
   "license": "MIT",
   "dependencies": {
+    "bem-naming": "git+https://github.com/bem/bem-naming.git",
     "css": "^2.2.1",
     "css-selector-parser": "^1.1.0",
     "lodash": "^3.10.1",
