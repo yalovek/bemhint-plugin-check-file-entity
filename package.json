@@ -2,6 +2,10 @@
   "name": "bemhint-plugins-check-file-entity",
   "version": "1.0.0",
   "description": "Check file entity",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/yalovek/bemhint-plugins-check-file-entity.git"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
