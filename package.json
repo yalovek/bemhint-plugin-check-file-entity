@@ -1,6 +1,6 @@
 {
   "name": "bemhint-plugins-check-file-entity",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Check file entity",
   "repository": {
     "type": "git",
