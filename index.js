@@ -4,7 +4,7 @@ var CssSelectorParser = require('css-selector-parser').CssSelectorParser;
 var _ = require('lodash');
 var bemNaming = require('bem-naming');
 
-module.exports.forEntityTech = function (tech, techsConfig, entity) {
+exports.forEachTech = function (tech, entity) {
     var str = tech.content;
     var block = tech.entity.block;
 

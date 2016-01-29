@@ -28,22 +28,22 @@ Because, here we have selector with another entity .select without checkbox.
 
 ## Config example
 
-```json
-{
-    "levels": [
+```js
+module.exports = {
+    levels: [
         "*.blocks"
     ],
 
-    "excludePaths": [
+    excludePaths: [
         "node_modueles/**"
     ],
 
-    "plugins": {
+    plugins: {
         "bemhint-plugins-check-file-entity": {
-            "techs": {
-                "styl": true
+            techs: {
+                styl: true
             }
         }
     }
-}
+};
 ```
