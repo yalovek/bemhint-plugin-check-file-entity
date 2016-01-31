@@ -11,11 +11,15 @@ exports.forEachTech = function (tech, entity) {
     function getStyle (str) {
         var deferred = Q.defer();
 
-        stylus(str).render(function (err, style) {
-            if (err) deferred.reject(new Error(err));
+        if (tech.name === 'styl')
+            stylus(str).render(function (err, style) {
+                if (err) deferred.reject(new Error(err));
 
-            deferred.resolve(style);
-        });
+                deferred.resolve(style);
+            });
+        else {
+            deferred.resolve(str);
+        }
 
         return deferred.promise;
     }
