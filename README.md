@@ -1,6 +1,6 @@
 # [BEM hint](https://github.com/bem/bemhint) plugin for checking file entity
 
-This plugin checks the BEM entity in the file. At this moment it can check only css abd stylus files.
+This plugin checks the BEM entity in the file. At this moment it can check only css, stylus and less files.
 
 ## For example
 

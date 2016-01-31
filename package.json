@@ -11,14 +11,19 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "bem"
+    "bem",
+    "bemhint",
+    "css",
+    "less",
+    "stylus"
   ],
-  "author": "Vadim Yalovenko, Alexey Khlebaev",
+  "author": "Vadim Yalovenko <yalovek@ya.ru>",
   "license": "MIT",
   "dependencies": {
     "bem-naming": "git+https://github.com/bem/bem-naming.git",
     "css": "^2.2.1",
     "css-selector-parser": "^1.1.0",
+    "less": "^2.6.0",
     "lodash": "^3.10.1",
     "q": "^1.4.1",
     "stylus": "^0.52.4"

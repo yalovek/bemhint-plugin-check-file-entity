@@ -4,6 +4,7 @@ var CssSelectorParser = require('css-selector-parser').CssSelectorParser;
 var _ = require('lodash');
 var bemNaming = require('bem-naming');
 var Q = require('q');
+var less = require('less');
 
 exports.forEachTech = function (tech, entity) {
     var block = tech.entity.block;
@@ -17,6 +18,13 @@ exports.forEachTech = function (tech, entity) {
 
                 deferred.resolve(style);
             });
+        else if (tech.name === 'less') {
+            less.render(str, {}, function(err, output) {
+                    if (err) deferred.reject(new Error(err));
+
+                    deferred.resolve(output.css);
+                });
+        }
         else {
             deferred.resolve(str);
         }
