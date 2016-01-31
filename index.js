@@ -5,6 +5,7 @@ var _ = require('lodash');
 var bemNaming = require('bem-naming');
 var Q = require('q');
 var less = require('less');
+var sass = require('node-sass');
 
 exports.forEachTech = function (tech, entity) {
     var block = tech.entity.block;
@@ -19,10 +20,19 @@ exports.forEachTech = function (tech, entity) {
                 deferred.resolve(style);
             });
         else if (tech.name === 'less') {
-            less.render(str, {}, function(err, output) {
+            less.render(str, function(err, output) {
                     if (err) deferred.reject(new Error(err));
 
                     deferred.resolve(output.css);
+                });
+        }
+        else if (tech.name === 'scss') {
+            sass.render({
+                    data: str
+                }, function(err, output) {
+                    if (err) deferred.reject(new Error(err));
+
+                    deferred.resolve(output.css.toString('utf8'));
                 });
         }
         else {
