@@ -17,6 +17,7 @@
     "less",
     "sass",
     "scss",
+    "postcss",
     "stylus"
   ],
   "author": "Vadim Yalovenko <yalovek@ya.ru>",
@@ -28,6 +29,7 @@
     "less": "^2.6.0",
     "lodash": "^3.10.1",
     "node-sass": "^3.4.2",
+    "postcss": "^5.0.14",
     "q": "^1.4.1",
     "stylus": "^0.52.4"
   }

@@ -6,8 +6,9 @@ var bemNaming = require('bem-naming');
 var Q = require('q');
 var less = require('less');
 var sass = require('node-sass');
+var postcss = require('postcss');
 
-exports.forEachTech = function (tech, entity) {
+exports.forEachTech = function (tech, entity, config) {
     var block = tech.entity.block;
 
     function getStyle (str) {
@@ -33,6 +34,14 @@ exports.forEachTech = function (tech, entity) {
                     if (err) deferred.reject(new Error(err));
 
                     deferred.resolve(output.css.toString('utf8'));
+                });
+        }
+        else if (tech.name === 'post.css') {
+            var plugins = config.getTechConfig(tech.name) || [];
+
+            postcss(plugins).process(str)
+                .then(function(output) {
+                    deferred.resolve(output.css);
                 });
         }
         else {

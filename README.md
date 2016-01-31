@@ -1,6 +1,6 @@
 # [BEM hint](https://github.com/bem/bemhint) plugin for checking file entity
 
-This plugin checks the BEM entity in the file. At this moment it can check only css, stylus, sass and less files.
+This plugin checks the BEM entity in the file. At this moment it can check only css, postcss, stylus, sass and less files.
 
 ## For example
 
@@ -41,7 +41,10 @@ module.exports = {
     plugins: {
         "bemhint-plugins-check-file-entity": {
             techs: {
-                "css|styl": true
+                "styl|css|less|scss": true,
+                "post.css": [
+                    require('precss')
+                ]
             }
         }
     }
