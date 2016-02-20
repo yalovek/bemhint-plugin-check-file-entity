@@ -132,12 +132,16 @@ exports.forEachTech = function (tech, entity, config) {
 
     function getBlockNames (classNames) {
         return _.map(classNames, function (className) {
-            return _.forEach(className, function (value) {
-                return {
-                    value: bemNaming.parse(value.value).block,
-                    selector: value.selector
-                };
-            });
+            return {
+                value: getBlocks(className.value),
+                selector: className.selector
+            };
+        });
+    }
+
+    function getBlocks (classNames) {
+        return _.map(classNames, function (className) {
+            return bemNaming.parse(className).block;
         });
     }
 
